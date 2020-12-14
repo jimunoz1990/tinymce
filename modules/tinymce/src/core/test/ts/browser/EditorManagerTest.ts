@@ -87,7 +87,7 @@ UnitTest.asynctest('browser.tinymce.core.EditorManagerTest', (success, failure) 
       content_css: '/project/tinymce/js/tinymce/skins/content/default',
       language: langCode,
       language_url: langUrl,
-      init_instance_callback:  (_ed) => {
+      init_instance_callback: (_ed) => {
         const scripts = Tools.grep(document.getElementsByTagName('script'), (script) => {
           return script.src === langUrl;
         });

@@ -15,13 +15,13 @@ const getBookmark = (selection: EditorSelection, type: number, normalized: boole
   return GetBookmark.getBookmark(selection, type, normalized);
 };
 
-const moveToBookmark = (selection: EditorSelection, bookmark: Bookmark) => {
+const moveToBookmark = (selection: EditorSelection, bookmark: Bookmark): void => {
   ResolveBookmark.resolve(selection, bookmark).each((rng) => {
     selection.setRng(rng);
   });
 };
 
-const isBookmarkNode = (node: Node) => {
+const isBookmarkNode = (node: Node): boolean => {
   return NodeType.isElement(node) && node.tagName === 'SPAN' && node.getAttribute('data-mce-type') === 'bookmark';
 };
 

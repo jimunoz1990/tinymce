@@ -94,9 +94,9 @@ RangeUtils.compareRanges = RangeCompare.isEq;
  * @param {Document} doc Document that x/y are relative to
  * @returns {Range} caret range
  */
-RangeUtils.getCaretRangeFromPoint = CaretRangeFromPoint.fromPoint as (clientX: number, clientY: number, doc: Document) => Range;
+RangeUtils.getCaretRangeFromPoint = CaretRangeFromPoint.fromPoint;
 
-RangeUtils.getSelectedNode = RangeNodes.getSelectedNode as (range: Range) => Node;
+RangeUtils.getSelectedNode = RangeNodes.getSelectedNode;
 RangeUtils.getNode = RangeNodes.getNode;
 
 export default RangeUtils;

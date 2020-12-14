@@ -68,7 +68,7 @@ interface EditorSelection {
   getContent (args?: GetSelectionContent.GetSelectionContentArgs): string;
   setContent: (content: string, args?: SetSelectionContent.SelectionSetContentArgs) => void;
   getBookmark: (type?: number, normalized?: boolean) => Bookmark;
-  moveToBookmark: (bookmark: Bookmark) => boolean;
+  moveToBookmark: (bookmark: Bookmark) => void;
   select: (node: Node, content?: boolean) => Node;
   isCollapsed: () => boolean;
   isForward: () => boolean;
@@ -209,7 +209,6 @@ const EditorSelection = (dom: DOMUtils, win: Window, serializer: DomSerializer, 
    *
    * @method moveToBookmark
    * @param {Object} bookmark Bookmark to restore selection from.
-   * @return {Boolean} true/false if it was successful or not.
    * @example
    * // Stores a bookmark of the current selection
    * var bm = tinymce.activeEditor.selection.getBookmark();
@@ -219,7 +218,7 @@ const EditorSelection = (dom: DOMUtils, win: Window, serializer: DomSerializer, 
    * // Restore the selection bookmark
    * tinymce.activeEditor.selection.moveToBookmark(bm);
    */
-  const moveToBookmark = (bookmark: Bookmark): boolean => bookmarkManager.moveToBookmark(bookmark);
+  const moveToBookmark = (bookmark: Bookmark): void => bookmarkManager.moveToBookmark(bookmark);
 
   /**
    * Selects the specified element. This will place the start and end of the selection range around the element.
